@@ -10,6 +10,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: "Arial", sans-serif;
+  font-size: 16px;
 }
 .visually-hidden {
   position: absolute;
@@ -28,4 +29,24 @@ body {
 	max-width: 1170px;
 	padding: 0 15px;
 	margin: 0 auto;
+}
+.site-title {
+  text-align: center;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+.search-form input,
+.search-form select,
+.search-form button {
+  padding: 10px 15px;
+  border: 1px solid #aaa;
+  margin: 0 15px;
+  border-radius: 4px;
+}
+.search-form__submit-button {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
