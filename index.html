@@ -8,7 +8,25 @@
 </head>
 <body>
 	
-	
+	<div class="container">
+		<h1 class="site-title">Movies App</h1>
+		<form class="search-form" action="https://echo.htmlacademy.ru" method="GET">
+			<label class="visually-hidden" for="title-input">Title</label>
+			<input class="search-form__input" type="text" name="title" id="title-input" placeholder="Movie name" required>
+
+			<label class="visually-hidden" for="genre-select">Genre</label>
+			<select class="search-form__select" name="genre" id="genre-select"></select>
+
+			<label class="visually-hidden" for="min-year-input">Released after</label>
+			<input class="search-form__input" type="number" name="min_year" id="min-year-input" placeholder="From" required>
+
+			<label class="visually-hidden" for="max-year-input">Released before</label>
+			<input class="search-form__input" type="number" name="max_year" id="max-year-input" placeholder="To" required>
+
+			<button class="search-form__submit-button" type="button">Search</button>
+		</form>
+		<hr>
+	</div>
 
 	<script src="js/scripts.js"></script>
 </body>
