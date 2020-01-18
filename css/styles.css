@@ -123,6 +123,9 @@ hr {
 .watchlist__remove-button {
   margin-left: 10px;
 }
+.watchlist__item {
+  margin-bottom: 15px;
+}
 /*MODAL*/
 .modal {
   display: none;
