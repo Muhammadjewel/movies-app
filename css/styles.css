@@ -11,6 +11,11 @@ body {
 	margin: 0;
 	font-family: "Arial", sans-serif;
   font-size: 16px;
+  line-height: 1.4;
+  background-color: #def0fe;
+}
+hr {
+  margin: 20px 0;
 }
 .visually-hidden {
   position: absolute;
@@ -33,6 +38,15 @@ body {
 .site-title {
   text-align: center;
 }
+.site-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/*SEARCH*/
+.search {
+  width: 850px;
+}
 .search-form {
   display: flex;
   justify-content: center;
@@ -40,9 +54,9 @@ body {
 .search-form input,
 .search-form select,
 .search-form button {
-  padding: 10px 15px;
+  padding: 5px;
   border: 1px solid #aaa;
-  margin: 0 15px;
+  margin: 0 10px;
   border-radius: 4px;
 }
 .search-form__submit-button {
@@ -59,4 +73,53 @@ body {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+.movie {
+  width: 46%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+.movie__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.movie__title {
+  flex-grow: 1;
+  margin: 0;
+}
+.movie__meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.movie__year {
+  margin-right: 15px;
+}
+.movie__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.movie__trailer-link {
+  text-decoration: none;
+}
+/*WATCHLIST*/
+.watchlist {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.watchlist__heading {
+  margin-top: 0;
+}
+.watchlist__list {
+  padding-left: 20px;
+}
+.watchlist__remove-button {
+  margin-left: 10px;
 }
