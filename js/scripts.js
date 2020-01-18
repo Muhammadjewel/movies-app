@@ -104,10 +104,13 @@ searchFormElement.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
   var searchMovieTitle = titleInputElement.value;
-  var regex = new RegExp(searchMovieTitle, 'gi');
+  var searchMovieGenre = genreSelectElement.value;
+  var searchMovieMinYear = minYearElement.value;
+  var searchMovieMaxYear = maxYearElement.value;
+  var movieTitleRegex = new RegExp(searchMovieTitle, 'gi');
 
   var results = normalizedData.filter(function (movie) {
-    return movie.title.toString().match(regex);
+    return movie.title.toString().match(movieTitleRegex) && movie.genres.includes(searchMovieGenre) && movie.year >= searchMovieMinYear && movie.year <= searchMovieMaxYear;
   });
 
   renderMovies(results);
