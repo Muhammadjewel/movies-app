@@ -50,6 +50,7 @@ var createMovieElement = function (movie) {
   movieElement.querySelector('.movie__year').textContent = movie.year;
   movieElement.querySelector('.movie__genres').textContent = movie.genres.join(', ');
   movieElement.querySelector('.movie__trailer-link').href += movie.youtube_id;
+  movieElement.querySelector('.movie__summary-button').dataset.title = movie.title;
   movieElement.querySelector('.movie__summary-button').dataset.summary = movie.summary;
   movieElement.querySelector('.movie__bookmark').dataset.id = movie.id;
 
@@ -114,4 +115,33 @@ searchFormElement.addEventListener('submit', function (evt) {
   });
 
   renderMovies(results);
+});
+
+var modalCloseHandler = function () {
+  modalElement.classList.remove('modal--shown');
+};
+
+var modalOverlayClickHandler = function (evt) {
+  if (evt.target.matches('.modal.modal--shown')) {
+    modalCloseHandler();
+  }
+};
+
+var modalEscKeyUpHandler = function (evt) {
+  if (evt.keyCode === 27) {
+    modalCloseHandler();
+  }
+};
+
+// Show summary modal
+moviesListElement.addEventListener('click', function (evt) {
+  if (evt.target.matches('.movie__summary-button')) {
+    modalElement.classList.add('modal--shown');
+    modalMovieTitleElement.textContent = evt.target.dataset.title;
+    modalMovieSummaryElement.textContent = evt.target.dataset.summary;
+
+    modalCloseButtonElement.addEventListener('click', modalCloseHandler);
+    modalElement.addEventListener('click', modalOverlayClickHandler);
+    document.addEventListener('keyup', modalEscKeyUpHandler);
+  }
 });
