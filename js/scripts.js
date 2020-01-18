@@ -101,6 +101,7 @@ genreSelectElement.appendChild(genresFragment);
 
 renderMovies(topMovies(20));
 
+// Search
 searchFormElement.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
@@ -117,6 +118,7 @@ searchFormElement.addEventListener('submit', function (evt) {
   renderMovies(results);
 });
 
+// Show summary modal
 var modalCloseHandler = function () {
   modalElement.classList.remove('modal--shown');
 };
@@ -133,7 +135,6 @@ var modalEscKeyUpHandler = function (evt) {
   }
 };
 
-// Show summary modal
 moviesListElement.addEventListener('click', function (evt) {
   if (evt.target.matches('.movie__summary-button')) {
     modalElement.classList.add('modal--shown');
