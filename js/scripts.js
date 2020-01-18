@@ -75,6 +75,29 @@ var topMovies = function (count) {
   return normalizedData.slice(0, count);
 };
 
+// LOAD
+var genres = [];
+normalizedData.forEach(function (movie) {
+  movie.genres.forEach(function (genre) {
+    if (genres.indexOf(genre) === -1) {
+      genres.push(genre);
+    }
+  });
+});
+
+// Populate genres select
+var genresFragment = document.createDocumentFragment();
+
+genres.sort().forEach(function (genre) {
+  var option = document.createElement('option');
+  option.textContent = genre;
+  option.value = genre;
+
+  genresFragment.appendChild(option);
+});
+
+genreSelectElement.appendChild(genresFragment);
+
 renderMovies(topMovies(20));
 
 searchFormElement.addEventListener('submit', function (evt) {
