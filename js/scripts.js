@@ -74,3 +74,5 @@ var topMovies = function (count) {
     return 0;
   }).splice(0, count);
 };
+
+renderMovies(topMovies(20));
