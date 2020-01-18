@@ -135,14 +135,18 @@ var modalEscKeyUpHandler = function (evt) {
   }
 };
 
+var showSummaryModal = function (evt) {
+  modalElement.classList.add('modal--shown');
+  modalMovieTitleElement.textContent = evt.target.dataset.title;
+  modalMovieSummaryElement.textContent = evt.target.dataset.summary;
+
+  modalCloseButtonElement.addEventListener('click', modalCloseHandler);
+  modalElement.addEventListener('click', modalOverlayClickHandler);
+  document.addEventListener('keyup', modalEscKeyUpHandler);
+};
+
 moviesListElement.addEventListener('click', function (evt) {
   if (evt.target.matches('.movie__summary-button')) {
-    modalElement.classList.add('modal--shown');
-    modalMovieTitleElement.textContent = evt.target.dataset.title;
-    modalMovieSummaryElement.textContent = evt.target.dataset.summary;
-
-    modalCloseButtonElement.addEventListener('click', modalCloseHandler);
-    modalElement.addEventListener('click', modalOverlayClickHandler);
-    document.addEventListener('keyup', modalEscKeyUpHandler);
+    showSummaryModal(evt);
   }
 });
