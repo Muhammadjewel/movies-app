@@ -123,3 +123,28 @@ hr {
 .watchlist__remove-button {
   margin-left: 10px;
 }
+/*MODAL*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal--shown {
+  display: block;
+}
+.modal__content {
+  position: relative;
+  width: 600px;
+  padding: 30px 40px;
+  margin: 80px auto;
+  background-color: #fff;
+}
+.modal__close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
