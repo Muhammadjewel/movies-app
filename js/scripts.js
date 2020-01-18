@@ -10,6 +10,13 @@ var normalizedData = movies.map(function (movie, index) {
     runtime: movie.runtime,
     youtube_id: movie.ytid
   };
+}).sort(function (a, b) {
+  if (a.imdb_rating > b.imdb_rating) {
+    return -1;
+  } else {
+    return 1;
+  }
+  return 0;
 });
 
 // DOM
@@ -65,14 +72,20 @@ var renderMovies = function (movies) {
 };
 
 var topMovies = function (count) {
-  return normalizedData.slice().sort(function (a, b) {
-    if (a.imdb_rating > b.imdb_rating) {
-      return -1;
-    } else {
-      return 1;
-    }
-    return 0;
-  }).splice(0, count);
+  return normalizedData.slice(0, count);
 };
 
 renderMovies(topMovies(20));
+
+searchFormElement.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+
+  var searchMovieTitle = titleInputElement.value;
+  var regex = new RegExp(searchMovieTitle, 'gi');
+
+  var results = normalizedData.filter(function (movie) {
+    return movie.title.toString().match(regex);
+  });
+
+  renderMovies(results);
+});
