@@ -1,3 +1,4 @@
+// Data
 var normalizedData = movies.map(function (movie, index) {
   return {
     id: index,
@@ -17,3 +18,22 @@ var normalizedData = movies.map(function (movie, index) {
   }
   return 0;
 });
+
+// DOM
+// Search form
+var searchFormElement = document.querySelector('.search-form');
+var titleInputElement = document.querySelector('#title-input');
+var genreSelectElement = document.querySelector('#genre-select');
+var minYearElement = document.querySelector('#min-year-input');
+var maxYearElement = document.querySelector('#max-year-input');
+// Movies List
+var moviesListElement = document.querySelector('.movies__list');
+var movieTemplate = document.querySelector('#movie-template').content;
+// Watchlist
+var watchlistElement = document.querySelector('.watchlist__list');
+var watchlistItemTemplate = document.querySelector('#watchlist-item-template').content;
+// Modal
+var modalElement = document.querySelector('.modal');
+var modalCloseButtonElement = document.querySelector('.modal__close-button');
+var modalMovieTitleElement = document.querySelector('.modal__movie-title');
+var modalMovieSummaryElement = document.querySelector('.modal__movie-summary');
