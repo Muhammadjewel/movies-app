@@ -15,16 +15,16 @@
 				<form class="search-form" action="https://echo.htmlacademy.ru" method="GET">
 					<label class="visually-hidden" for="title-input">Title</label>
 					<input class="search-form__input" type="text" name="title" id="title-input" placeholder="Movie name" required>
-				
+
 					<label class="visually-hidden" for="genre-select">Genre</label>
 					<select class="search-form__select" name="genre" id="genre-select"></select>
-				
+
 					<label class="visually-hidden" for="min-year-input">Released after</label>
 					<input class="search-form__input" type="number" name="min_year" id="min-year-input" placeholder="From" required>
-				
+
 					<label class="visually-hidden" for="max-year-input">Released before</label>
 					<input class="search-form__input" type="number" name="max_year" id="max-year-input" placeholder="To" required>
-				
+
 					<button class="search-form__submit-button" type="button">Search</button>
 				</form>
 				
@@ -33,87 +33,8 @@
 				<!-- MOVIES LIST -->
 				<section class="movies">
 					<h2 class="movies__title visually-hidden">Movies' list</h2>
-				
-					<ul class="movies__list">
-						<li class="movies__item movie">
-							<header class="movie__header">
-								<h3 class="movie__title">Lorem ipsum dolor sit.</h3>
-								<span class="movie__rating">9.9</span>
-							</header>
-							<div class="movie__meta">
-								<div class="movie__year">2019</div>
-								<div class="movie__genres">Action</div>
-							</div>
-							<footer class="movie__actions">
-								<a class="movie__trailer-link" href="https://youtube.com/watch?v=">Watch trailer</a>
-								<button class="movie__summary-button" type="button">Read summary</button>
-								<button class="movie__bookmark" type="button">Add to watchlist</button>
-							</footer>
-						</li>
-			
-						<li class="movies__item movie">
-							<header class="movie__header">
-								<h3 class="movie__title">Lorem ipsum dolor sit.</h3>
-								<span class="movie__rating">9.9</span>
-							</header>
-							<div class="movie__meta">
-								<div class="movie__year">2019</div>
-								<div class="movie__genres">Action</div>
-							</div>
-							<footer class="movie__actions">
-								<a class="movie__trailer-link" href="https://youtube.com/watch?v=">Watch trailer</a>
-								<button class="movie__summary-button" type="button">Read summary</button>
-								<button class="movie__bookmark" type="button">Add to watchlist</button>
-							</footer>
-						</li>
-			
-						<li class="movies__item movie">
-							<header class="movie__header">
-								<h3 class="movie__title">Lorem ipsum dolor sit.</h3>
-								<span class="movie__rating">9.9</span>
-							</header>
-							<div class="movie__meta">
-								<div class="movie__year">2019</div>
-								<div class="movie__genres">Action</div>
-							</div>
-							<footer class="movie__actions">
-								<a class="movie__trailer-link" href="https://youtube.com/watch?v=">Watch trailer</a>
-								<button class="movie__summary-button" type="button">Read summary</button>
-								<button class="movie__bookmark" type="button">Add to watchlist</button>
-							</footer>
-						</li>
-			
-						<li class="movies__item movie">
-							<header class="movie__header">
-								<h3 class="movie__title">Lorem ipsum dolor sit.</h3>
-								<span class="movie__rating">9.9</span>
-							</header>
-							<div class="movie__meta">
-								<div class="movie__year">2019</div>
-								<div class="movie__genres">Action</div>
-							</div>
-							<footer class="movie__actions">
-								<a class="movie__trailer-link" href="https://youtube.com/watch?v=">Watch trailer</a>
-								<button class="movie__summary-button" type="button">Read summary</button>
-								<button class="movie__bookmark" type="button">Add to watchlist</button>
-							</footer>
-						</li>
-			
-						<li class="movies__item movie">
-							<header class="movie__header">
-								<h3 class="movie__title">Lorem ipsum dolor sit.</h3>
-								<span class="movie__rating">9.9</span>
-							</header>
-							<div class="movie__meta">
-								<div class="movie__year">2019</div>
-								<div class="movie__genres">Action</div>
-							</div>
-							<footer class="movie__actions">
-								<a class="movie__trailer-link" href="https://youtube.com/watch?v=">Watch trailer</a>
-								<button class="movie__summary-button" type="button">Read summary</button>
-								<button class="movie__bookmark-button" type="button">Add to watchlist</button>
-							</footer>
-						</li>
+
+					<ul class="movies__list">						
 					</ul>
 				</section>
 			</section>
@@ -122,32 +43,45 @@
 			<section class="watchlist">
 				<h2 class="watchlist__heading">Watchlist</h2>
 				<ul class="watchlist__list">
-					<li class="watchlist__item">
-						<span class="watchlist__title">Lorem ipsum dolor sit amet.</span>	
-						<button class="watchlist__remove-button" type="button">X</button>
-					</li>
-					<li class="watchlist__item">
-						<span class="watchlist__title">Lorem ipsum dolor sit amet.</span>	
-						<button class="watchlist__remove-button" type="button">X</button>
-					</li>
-					<li class="watchlist__item">
-						<span class="watchlist__title">Lorem ipsum dolor sit amet.</span>	
-						<button class="watchlist__remove-button" type="button">X</button>
-					</li>
 				</ul>
 			</section>
 		</div>
-
 	</div>
 
-
+	<!-- MODALS -->
 	<section class="modal">
 		<div class="modal__content">
 			<button class="modal__close-button" type="button">X</button>
-			<h2 class="modal__movie-title">Lorem ipsum dolor sit amet.</h2>
-			<p class="modal__movie-summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, pariatur placeat! Repellat saepe eum sequi unde, qui consequatur, ea aut, nobis laboriosam corrupti reprehenderit! Laborum distinctio cumque nesciunt minus at esse sequi voluptates, excepturi rem est quisquam tempora nisi nemo ullam porro cupiditate ducimus! Minima magni delectus eligendi aspernatur voluptas.</p>
+			<h2 class="modal__movie-title">Movie title</h2>
+			<p class="modal__movie-summary">Movie summary</p>
 		</div>
 	</section>
+
+	<!-- TEMPLATES -->
+	<template id="movie-template">
+		<li class="movies__item movie">
+			<header class="movie__header">
+				<h3 class="movie__title">Lorem ipsum dolor sit.</h3>
+				<span class="movie__rating">9.9</span>
+			</header>
+			<div class="movie__meta">
+				<div class="movie__year">2019</div>
+				<div class="movie__genres">Action</div>
+			</div>
+			<footer class="movie__actions">
+				<a class="movie__trailer-link" href="https://youtube.com/watch?v=">Watch trailer</a>
+				<button class="movie__summary-button" type="button">Read summary</button>
+				<button class="movie__bookmark" type="button">Add to watchlist</button>
+			</footer>
+		</li>
+	</template>
+
+	<template id="watchlist-item-template">
+		<li class="watchlist__item">
+			<span class="watchlist__title">Lorem ipsum dolor sit amet.</span>	
+			<button class="watchlist__remove-button" type="button">X</button>
+		</li>
+	</template>
 
 	<script src="js/scripts.js"></script>
 </body>
