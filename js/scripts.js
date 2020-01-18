@@ -10,13 +10,6 @@ var normalizedData = movies.map(function (movie, index) {
     runtime: movie.runtime,
     youtube_id: movie.ytid
   };
-}).sort(function (a, b) {
-  if (a.imdb_rating > b.imdb_rating) {
-    return -1;
-  } else {
-    return 1;
-  }
-  return 0;
 });
 
 // DOM
@@ -64,4 +57,20 @@ var createMoviesFragmentElement = function (movies) {
   });
 
   return moviesFragment;
-}
+};
+
+var renderMovies = function (movies) {
+  moviesListElement.innerHTML = '';
+  moviesListElement.appendChild(createMoviesFragmentElement(movies));
+};
+
+var topMovies = function (count) {
+  return normalizedData.slice().sort(function (a, b) {
+    if (a.imdb_rating > b.imdb_rating) {
+      return -1;
+    } else {
+      return 1;
+    }
+    return 0;
+  }).splice(0, count);
+};
