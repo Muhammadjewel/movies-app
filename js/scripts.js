@@ -19,6 +19,8 @@ var normalizedData = movies.map(function (movie, index) {
   return 0;
 });
 
+var watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
 // DOM
 // Search form
 var searchFormElement = document.querySelector('.search-form');
@@ -52,9 +54,40 @@ var createMovieElement = function (movie) {
   movieElement.querySelector('.movie__trailer-link').href += movie.youtube_id;
   movieElement.querySelector('.movie__summary-button').dataset.title = movie.title;
   movieElement.querySelector('.movie__summary-button').dataset.summary = movie.summary;
-  movieElement.querySelector('.movie__bookmark').dataset.id = movie.id;
+  movieElement.querySelector('.movie__bookmark-button').dataset.id = movie.id;
+
+  var isMovieWatchlisted = watchlist.find(function (watchlistedMovie) {
+    return watchlistedMovie.id === movie.id;
+  });
+
+  if (isMovieWatchlisted) {
+    movieElement.querySelector('.movie__bookmark-button').disabled = true;
+  }
 
   return movieElement;
+};
+
+var createWatchlistItemElement = function (movie, index) {
+  var watchlistItem = document.importNode(watchlistItemTemplate, true);
+  watchlistItem.querySelector('.watchlist__title').textContent = movie.title;
+  watchlistItem.querySelector('.watchlist__remove-button').dataset.index = index;
+
+  return watchlistItem;
+};
+
+var createWatchlistFragment = function (watchlistedMovies) {
+  var watchlistFragment = document.createDocumentFragment();
+
+  watchlistedMovies.forEach(function (movie, index) {
+    watchlistFragment.appendChild(createWatchlistItemElement(movie, index));
+  });
+
+  return watchlistFragment;
+};
+
+var renderWatchlist = function (watchlist) {
+  watchlistElement.innerHTML = '';
+  watchlistElement.appendChild(createWatchlistFragment(watchlist));
 };
 
 var createMoviesFragmentElement = function (movies) {
@@ -100,6 +133,7 @@ genres.sort().forEach(function (genre) {
 genreSelectElement.appendChild(genresFragment);
 
 renderMovies(topMovies(20));
+renderWatchlist(watchlist);
 
 // Search
 searchFormElement.addEventListener('submit', function (evt) {
@@ -148,5 +182,25 @@ var showSummaryModal = function (evt) {
 moviesListElement.addEventListener('click', function (evt) {
   if (evt.target.matches('.movie__summary-button')) {
     showSummaryModal(evt);
+  } else if (evt.target.matches('.movie__bookmark-button')) {
+    var movieId = parseInt(evt.target.dataset.id, 10);
+    var movieToWatch = normalizedData.find(function (movie) {
+      return movie.id === movieId;
+    });
+
+    evt.target.disabled = true;
+
+    watchlist.push(movieToWatch);
+
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+    renderWatchlist(watchlist);
+  }
+});
+
+watchlistElement.addEventListener('click', function (evt) {
+  if (evt.target.matches('.watchlist__remove-button')) {
+    watchlist.splice(evt.target.dataset.index, 1);
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+    renderWatchlist(watchlist);
   }
 });
